@@ -1,0 +1,18 @@
+{
+  "name": "bo-employee-tracker",
+  "version": "1.0.0",
+  "description": "tracks employees",
+  "main": "index.js",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "dotenv": "^8.2.0",
+    "inquirer": "^7.3.3",
+    "mysql2": "^2.2.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
