@@ -7,6 +7,19 @@ class DB {
   findAllEmployees() {
     return this.connection.promise().query("select * from employee");
   }
+  findAllRoles() {
+    return this.connection
+      .promise()
+      .query(
+        "select role.id, role.title, department.name as department, role.salary from role left join department on role.department_id = department.id;"
+      );
+  }
+  findAllDepartments() {
+    return this.connection.promise().query("select * from department")
+  }
+  addDepartment(name) {
+    return this.connection.promise().query('INSERT INTO department SET ?', name)
+  }
 }
 
 module.exports = new DB(connection);
