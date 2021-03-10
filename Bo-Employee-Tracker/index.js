@@ -171,15 +171,34 @@ const addDepartment = () => {
   })
 }
 const addNewRole = () => {
-  return inquirer.prompt([{
-    name: "name",
-    type: "input",
-    message: "What is the name of the new Department",
-  }]).then((name) => {
-    db.addDepartment(name).then(() => {
-      loadMainPrompts()
+  db.findAllDepartments().then(([rows]) => {
+    let departments = rows
+    const departmentChoices = departments.map((department) => {
+      return { name: department.name, value: department.id }
+    })
+    inquirer.prompt([{
+      name: "department_id",
+      type: "list",
+      message: "What is the department for the role?",
+      choices: departmentChoices
+    },
+    {
+      name: "title",
+      type: "input",
+      message: "What is the title for this position?",
+    },
+    {
+      name: "salary",
+      type: "input",
+      message: "What is the salary for this position?",
+    }
+    ]).then((role) => {
+      db.addRole(role).then(() => {
+        loadMainPrompts()
+      })
     })
   })
+
 }
 
 //?? add a case to my switch statement for every option
