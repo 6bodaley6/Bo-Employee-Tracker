@@ -12,7 +12,7 @@ create table role (
     salary decimal not null,
     department_id int(6) not null,
     constraint fk_department foreign key (department_id) references department(id) on delete cascade
-);
+);  
 create table employee (
     id int(6) auto_increment primary key,
     first_name varchar(30) not null, 

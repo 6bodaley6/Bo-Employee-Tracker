@@ -270,7 +270,8 @@ const updateEmployeeRole = () => {
             choices: rolesChoices
           },
         ]).then((answers => {
-          connection.promise().query("UPDATE employee SET role_id = ? WHERE id = ?", [answers.employee, answers.role]).then((data) => {
+          console.log(answers)
+          connection.promise().query("UPDATE employee SET role_id = ? WHERE id = ?", [answers.role, answers.employee]).then((data) => {
             console.log("employee's role updated")
             loadMainPrompts()
           })
