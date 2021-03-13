@@ -37,7 +37,7 @@ const loadMainPrompts = () => {
         case "ADD_NEW_DEPARTMENT":
           addDepartment();
           break;
-        case "ADD_A_ROLE":
+        case "ADD_ROLE":
           addNewRole();
           break;
         case "ADD_EMPLOYEE":
@@ -90,7 +90,6 @@ const viewEmployees = () => {
       console.log(err);
     });
 };
-//!!
 // // const addEmployee = () => {
 // //   const roles = [];
 // //   const employees = [];
@@ -291,7 +290,7 @@ const updateEmployeeRole = () => {
 
                 //?? I will have to add methods to my db class to handle new functionality
 
-                //?? some of the functions for the cases may require additional inquirer.prompts. You may have to combine database queries with inquirer questions to correctly fill out data
+                //?? some of the functions for the cases may require additional inquirer.prompts. Have to combine database queries with inquirer questions to correctly fill out data
 
                 //??
 
